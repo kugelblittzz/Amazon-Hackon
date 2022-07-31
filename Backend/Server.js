@@ -4,9 +4,10 @@ const mongoose=require("mongoose");
 const cors=require('cors');
 const bodyParser = require('body-parser');
 const cookieparser= require('cookie-parser');
+const QRgenerate=require('./QRgenerate');
 
 
-mongoose.connect("mongodb+srv://verichain:helloverichain123@main.ehj4f.mongodb.net/verichain_database?retryWrites=true&w=majority",{useUnifiedTopology: true},(err,client)=>{
+mongoose.connect("mongodb://0.0.0.0:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",{useUnifiedTopology: true},(err,client)=>{
     if(!err)
     {
         console.log("connection to database successfull")
@@ -18,14 +19,17 @@ mongoose.connect("mongodb+srv://verichain:helloverichain123@main.ehj4f.mongodb.n
     }
 }
 );
-var corseoptions={credentials:true}
 
-app.use(cors(corseoptions));
+
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended:true,
 }));
+
 app.use(cookieparser());
+
+app.use("/api",QRgenerate);
 
 
 
