@@ -34,9 +34,9 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/upload',(req,res) => {
-  res.render('index2');
-});
+// app.get('/upload',(req,res) => {
+//   res.render('index2');
+// });
 
 
 //going to upload page
@@ -66,7 +66,7 @@ app.post('/upload', (req, res) => {
   });
 });
 
-app.get('/showdata', (req, res) => {});
+// app.get('/showdata', (req, res) => {});
 
 
 //server created
