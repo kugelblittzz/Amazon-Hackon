@@ -2,5 +2,12 @@
 Hackon Hackathon
 
 # Delivery id
-1) agent scanning the id card of the person collecting the delivery, the details automatically coming up on the delivery portal, hence reducing identity theft
+1) Agent scanning the id card of the person collecting the delivery, the details automatically coming up on the delivery portal, hence reducing identity theft.
  
+# Fraud Detection
+1)Gaussian models help us to create more potential fraud cases, thus increasing the dataset along with fitting it.
+2)Will want to Train it on the location data, IP address of AMAZON PAY alongside the amount of each transaction with the frequency of transactions to determine if the account has been hacked or being used for fraudulent activity
+
+#QRcode_ Tamperproof sticker
+1) Attaching tamper-proof stickers and assigning unique numbers to each sticker( hence product) storing the details of the products( photos, specific features) on the portal, powering it by blockchain hence not allowing the seller to change it, makes sure the product sent to the customer is the one that is returned
+2)Will move towards making this decentralised using Blockchain
