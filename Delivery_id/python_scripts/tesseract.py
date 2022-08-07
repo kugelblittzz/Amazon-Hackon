@@ -1,7 +1,9 @@
+
 from tesserocr import PyTessBaseAPI
 import cv2 as cv
-images = ['pan.jpg','aadhar1.jpg','anirudh_pan.jpeg','anirudh_driver.jpeg']
-
+from fastapi import FastAPI
+# images = ['pan.jpg','aadhar1.jpg','anirudh_pan.jpeg','anirudh_driver.jpeg']
+app=FastAPI()
 def preprocess_txt(txt,conf):
     cleaned_txt=[]
     cleaned_conf=[]

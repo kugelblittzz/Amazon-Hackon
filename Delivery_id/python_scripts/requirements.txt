@@ -1,4 +1,6 @@
 fastapi
 opencv-python
-shutil
 uvicorn
+pydantic
+pytesseract
+tesserocr

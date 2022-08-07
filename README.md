@@ -13,6 +13,10 @@ Hackon Hackathon
 1) Attaching tamper-proof stickers and assigning unique numbers to each sticker( hence product) storing the details of the products( photos, specific features) on the portal, powering it by blockchain hence not allowing the seller to change it, makes sure the product sent to the customer is the one that is returned
 2)Will move towards making this decentralised using Blockchain
 
+
+# Tesseract
+Please download the tesseract model from online before running requirements.txt
+
 # Python Scripts running:
 
 For OCR model, please leave as it is a bit hardcoded now
