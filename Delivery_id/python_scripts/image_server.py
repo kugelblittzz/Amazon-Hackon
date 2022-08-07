@@ -1,10 +1,23 @@
+import uvicorn
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 import os
 import cv2 
 import sys
 import shutil
 app=FastAPI()
+
+origins=["http://localhost:3000",
+"localhost:3000"
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 @app.post("/img")
 async def create_file(file:UploadFile):
