@@ -6,6 +6,7 @@ import os
 import cv2 
 import sys
 import shutil
+import base64
 app=FastAPI()
 
 origins=["http://localhost:3000",
@@ -47,4 +48,7 @@ async def create_file(file:UploadFile):
         cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
     status = cv2.imwrite('faces_detected.jpg', image)
-    return FileResponse(os.path.join(os.getcwd(),'faces_cropped.jpg'))
+    imgpath=os.path.join(os.getcwd(),'faces_cropped.jpg')
+    with open(imgpath,'rb') as f:
+        base64image=base64.b64encode(f.read())
+    return base64image

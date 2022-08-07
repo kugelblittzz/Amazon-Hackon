@@ -8,15 +8,17 @@ import QrReader from 'react-qr-reader-es6'
 
 const QRverify=()=>{
     const [code,setCode]=useState("");
-    const [q,setQ]=useState("");
+    const [email,setEmail]=useState("");
+    const [order,setOrder]=useState("");
+    // const [q,setQ]=useState("");
 
 
-    const Scan=(da)=>{
-        if(da)
-        {
-            setQ(da);
-        }
-    }
+    // const Scan=(da)=>{
+    //     if(da)
+    //     {
+    //         setQ(da);
+    //     }
+    // }
     let navigate=useNavigate();
 
     const Link=()=>{
@@ -39,7 +41,9 @@ const QRverify=()=>{
         }).then((res)=>{
             var data=res.data.data;
             console.log(data);
-            setCode(data);
+            setCode(res.data.message);
+            setEmail(data.email);
+            setOrder(data.order_id);
             
         })
     }
@@ -81,6 +85,10 @@ const QRverify=()=>{
         </div>
        
         <p className="code text-white" style={{fontSize:"2rem"}}>{code}</p>
+
+        <p className="code text-white" style={{fontSize:"1.7rem"}}>Order Id: {order}</p>
+        <p className="code text-white" style={{fontSize:"1.7rem"}}>Email : {email}</p>
+
 
         
 

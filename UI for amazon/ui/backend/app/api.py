@@ -3,12 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
  
 app =FastAPI()
 
-origins=['http://localhost:3002','localhost:3002']
+origins=['http://localhost:3000','localhost:3000']
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -31,12 +31,13 @@ todos = [
 ]
 
 
-@app.get("/todo", tags=["todos"])
+@app.post("/todo")
 async def get_todos() -> dict:
+    print("Inh = here")
     return { "data": todos }
 
     
-@app.get("/", tags=["root"])
+@app.get("/")
 async def read_root() ->dict:
     return {"Hello": "World check"}
 

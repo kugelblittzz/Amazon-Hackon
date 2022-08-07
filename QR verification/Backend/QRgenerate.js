@@ -39,12 +39,12 @@ router.post("/verify",async(req,res)=>{
         {
             console.log("successful")
             console.log(data);
-            res.json({"success":true,data:"Verified Successfully!!"});
+            res.json({"success":true,message:"Verified Successfully!!",data:data});
         }
         else
         {
             console.log(data);
-            res.json({"success":false,data:"Not found!"});
+            res.json({"success":false,message:"Not found!"});
         }
     })
 })

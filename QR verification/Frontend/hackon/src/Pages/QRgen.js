@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { Link,useNavigate,Redirect   } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import {Link,useNavigate,Redirect} from "react-router-dom";
+import {useParams } from "react-router-dom";
 import axios from "axios";
 import QRCode from "react-qr-code";
 import QrReader from 'react-qr-reader-es6'
