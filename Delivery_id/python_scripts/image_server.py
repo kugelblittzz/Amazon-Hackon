@@ -52,3 +52,35 @@ async def create_file(file:UploadFile):
     with open(imgpath,'rb') as f:
         base64image=base64.b64encode(f.read())
     return base64image
+
+# the tesseract part, would suggest not to touch this :)
+from tesserocr import PyTessBaseAPI
+
+
+def preprocess_txt(txt,conf):
+    cleaned_txt=[]
+    cleaned_conf=[]
+    for confidence,word in zip(conf,txt):
+        if(len(word) >= 3):
+            cleaned_txt.append(word)
+            cleaned_conf.append(confidence)
+    return cleaned_txt,cleaned_conf
+
+
+@app.post('\extract-details')
+async def teser_details(file:UploadFile):
+    with open(f"{file.filename}","wb") as buf:
+        shutil.copyfileobj(file.file,buf)
+    with PyTessBaseAPI() as api:
+        image=cv2.imread(file.filename)
+        image=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        image=cv2.fastNlMeansDenoisingColored(image, None, hColor=10)
+        cv2.imwrite('temp.jpg',image)
+        api.SetImageFile('temp.jpg')
+        txt=api.GetUTF8Text().replace('\n',' ').split()
+        txt=" ".join(txt).split(' ')
+        conf=api.AllWordConfidences()
+
+        cleaned_txt,cleaned_conf=preprocess_txt(txt,conf)
+        return_value=" ".join(cleaned_txt)
+        return {"data":return_value}
