@@ -67,7 +67,7 @@ def preprocess_txt(txt,conf):
     return cleaned_txt,cleaned_conf
 
 
-@app.post('\extract-details')
+@app.post('/extract-details')
 async def teser_details(file:UploadFile):
     with open(f"{file.filename}","wb") as buf:
         shutil.copyfileobj(file.file,buf)
