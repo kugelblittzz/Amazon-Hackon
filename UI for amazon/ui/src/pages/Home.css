@@ -12,3 +12,25 @@
     margin-bottom: -150px;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   }
+
+.form-control{
+  padding: 8px 20px;
+  background-color: #232F3E;
+  color: white;
+  border-radius: .5rem;
+}
+
+.test{
+  margin-left:  45%;
+  padding: 8px 20px;
+  background-color: #232F3E;
+  color: white;
+  border-radius: .5rem;
+}
+.gettext{
+  margin-left: 2rem;
+  padding: 8px 20px;
+  background-color: #232F3E;
+  color: white;
+  border-radius: .5rem;
+}

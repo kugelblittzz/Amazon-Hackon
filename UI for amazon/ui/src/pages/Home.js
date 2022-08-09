@@ -18,7 +18,9 @@ function Home() {
 
   const [datas,setData]=useState(null);
 
+const gettext=async()=> {
 
+}
 
   const test=async()=>{
     console.log(document.getElementById("image").files[0]);
@@ -103,8 +105,9 @@ outputImg.src = 'data:image/jpeg;base64,'+res.data;
 
     <div className="product">
       <div className="product__info">
-        <p>NIKE SHOES</p>
+        <p>PRODUCT:Nike Blazers</p>
         <p className="product__price">
+          Product Price: 
           <small>$</small>
           <strong>500</strong>
         </p>
@@ -116,7 +119,7 @@ outputImg.src = 'data:image/jpeg;base64,'+res.data;
       
       <input id="image" className="form-control"  type="file" name="image" accept="image/jpeg"/>
 
-      <input id="testing" className="form-control" src="" type="image/jpeg" name="image" accept="image/jpeg"/>
+      {/* <input id="testing" className="form-control" src="" type="image/jpeg" name="image" accept="image/jpeg"/> */}
 
       <div class="uploadd">
         {/* <input class="btn pt-3 btn-md btn-primary btn-lg" type="submit" name="submit" id="btnSubmit" value="Upload" /> */}
@@ -131,9 +134,11 @@ outputImg.src = 'data:image/jpeg;base64,'+res.data;
     
 
 
-    <button onClick={test}>sdfasd
+      <button className="test" onClick={test}>Upload
         </button>
         
+        <button className="gettext" onClick={gettext}>Get Text
+        </button>
 
 
         <img src ="" id="result" />
