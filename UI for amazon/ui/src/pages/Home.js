@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Product from "./Product";
-import "bootstrap/dist/css/bootstrap.css";
+//import "bootstrap/dist/css/bootstrap.css";
 
 import "./Header.css";
 import "./Product.css"
@@ -86,16 +86,16 @@ outputImg.src = 'data:image/jpeg;base64,'+res.data;
           <span className="header__optionLineTwo">& Orders</span>
         </div>
 
-        <div className="header__option">
+        {/* <div className="header__option">
           <span className="header__optionLineOne">Your</span>
           <span className="header__optionLineTwo">Prime</span>
-        </div>
+        </div> */}
 
         
-        <div className="header__optionBasket">
+        {/* <div className="header__optionBasket">
           <ShoppingBasketIcon />
           <span className="header__optionLineTwo header__basketCount">0</span>
-        </div>
+        </div> */}
       </div>
     </div>
 
