@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Product from "./Product";
-//import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 import "./Header.css";
 import "./Product.css"
@@ -19,7 +19,34 @@ function Home() {
 
   const [datas,setData]=useState(null);
 
+  const [text,setText]=useState(null);
+
 const gettext=async()=> {
+  console.log(document.getElementById("image").files[0]);
+    var data=document.getElementById("image").files[0];
+    const formData = new FormData();
+    formData.append("file",data);
+    console.log(formData);
+    // document.getElementById("testing").src="data";
+    await axios.post("/extract-details",formData,
+    {
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type':"image/jpeg",
+        'type':"image/jpeg"
+      }
+    }
+    ).then((res)=>{
+      console.log(res.data);
+      setText(res.data.data);
+
+// append it to your page
+
+    })
+
+
+
+
 
 }
 
@@ -29,7 +56,7 @@ const gettext=async()=> {
     const formData = new FormData();
     formData.append("file",data);
     console.log(formData);
-    document.getElementById("testing").src="data";
+    // document.getElementById("testing").src="data";
     await axios.post("/img",formData,
     {
       headers:{
@@ -118,7 +145,7 @@ outputImg.src = 'data:image/jpeg;base64,'+res.data;
       <img src="https://media.gq-magazine.co.uk/photos/621cba0079d681bd2cc22f59/master/w_800%2Cc_limit/24022022_A_06.jpeg" alt="" />
 
       
-      <input id="image" className="form-control"  type="file" name="image" accept="image/jpeg"/>
+      <input style={{width:"20vw"}} id="image" className="form-control"  type="file" name="image" accept="image/jpeg"/>
 
       {/* <input id="testing" className="form-control" src="" type="image/jpeg" name="image" accept="image/jpeg"/> */}
 
@@ -141,8 +168,18 @@ outputImg.src = 'data:image/jpeg;base64,'+res.data;
         <button className="gettext" onClick={gettext}>Get Text
         </button>
 
-
+        <div className="container d-flex flex-column justify-content-center align-items-center">
+        <h2 className="heading1 py-2">Extracted Cropped image</h2>
         <img src ="" id="result" />
+        <h2 className="heading1 py-2">Extracted Text</h2>
+        <p style={{fontSize:"1.1rem"}} className="text">{text}</p>
+
+        </div>
+
+
+        
+
+        
 
 
 
