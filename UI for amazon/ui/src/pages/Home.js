@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Product from "./Product";
+import "bootstrap/dist/css/bootstrap.css";
 
 import "./Header.css";
 import "./Product.css"
@@ -118,7 +119,7 @@ outputImg.src = 'data:image/jpeg;base64,'+res.data;
 
       <input id="testing" className="form-control" src="" type="image/jpeg" name="image" accept="image/jpeg"/>
 
-      <div class="uploadd">
+      <div className="uploadd">
         {/* <input class="btn pt-3 btn-md btn-primary btn-lg" type="submit" name="submit" id="btnSubmit" value="Upload" /> */}
 
 

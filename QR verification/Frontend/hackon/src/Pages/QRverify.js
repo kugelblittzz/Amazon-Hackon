@@ -10,6 +10,7 @@ const QRverify=()=>{
     const [code,setCode]=useState("");
     const [email,setEmail]=useState("");
     const [order,setOrder]=useState("");
+    const [image,setImage]=useState("");
     // const [q,setQ]=useState("");
 
 
@@ -44,6 +45,7 @@ const QRverify=()=>{
             setCode(res.data.message);
             setEmail(data.email);
             setOrder(data.order_id);
+            setImage(data.image);
             
         })
     }
@@ -88,6 +90,9 @@ const QRverify=()=>{
 
         <p className="code text-white" style={{fontSize:"1.7rem"}}>Order Id: {order}</p>
         <p className="code text-white" style={{fontSize:"1.7rem"}}>Email : {email}</p>
+        <a href={image} className="code text-white" style={{fontSize:"1.7rem"}}>Click to view Product Image</a>
+
+        <a href="" className="image"></a>
 
 
         
