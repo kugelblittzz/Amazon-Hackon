@@ -7,6 +7,9 @@ const Order = new Schema({
     hash: {
         type:String,
     },
+    image:{
+        type:String,
+    }
 
 })
 

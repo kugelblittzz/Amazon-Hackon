@@ -11,13 +11,15 @@ router.post("/generate",async(req,res)=>{
     console.log("success connect");
 
     const {order_id,email}=req.body;
+    const image="https://drive.google.com/file/d/1HbYniPxlnhHazhTNx150CcxJk3CDURya/view?usp=sharing"
     console.log(req.body);
     const hash=sha256(order_id);
     console.log("success connect");
     const order= new Order({
         order_id:order_id,
         email:email,
-        hash:hash
+        hash:hash,
+        image:image
     })
 
     order.save().then(()=>{
